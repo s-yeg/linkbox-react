@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+//시간+배터리 기능 컴포넌트
 import StatusBar from '../components/StatusBar';
 import '../App.css'
 
@@ -7,12 +8,12 @@ import '../App.css'
 //로그인 화면을 만들어주는 함수
 function Login() {
 
-                   //navigation() : react 에서 주소를 이동시키는 함수 
-                  
+//useNavigate()가 돌려준 이동 함수를 navigation변수에 넣음
   const navigation = useNavigate()
 
   const [username,setUsername]=useState("");
   const [password,setPassword]=useState("");
+
   const [message,setMessage]=useState("");
 
 
@@ -20,26 +21,14 @@ function Login() {
  async function clickLogin()
 {
     const response = await fetch('http://localhost:8080/api/login',
-    {
-        method:'POST',
-
-        credentials: 'include',
-
-        headers:
-        {
-            'Content-Type':'application/json'
-        },
-
-        body:JSON.stringify(
-        {
-            username:username,
-            password:password
-        })
-    })
+         { method:'POST', 
+           credentials: 'include', 
+           headers: { 'Content-Type':'application/json' },
+           body: JSON.stringify( { username:username,password:password })
+         })
 
     const data = await response.text()
 
-    console.log(data)
 
     if (data==="login success"){
       navigation("/")

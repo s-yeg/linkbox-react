@@ -7,19 +7,11 @@ function Home() {
 
     async function clickLogout() {
 
-        const response = await fetch(
-            'http://localhost:8080/api/logout',
-            {
-                method: 'POST',
-                credentials: 'include'
-            }
-        )
+        const response = await fetch('http://localhost:8080/api/logout', { method: 'POST', credentials: 'include' })
 
         const data = await response.text()
 
-        if (data === "logout success") {
-            navigation("/login")
-        }
+        if (data === "logout success") { navigation("/login")}
     }
 
 
@@ -31,7 +23,7 @@ function Home() {
             <div className='menuBox'>
 
                 <button onClick={() => navigation("/links")}> MY URL </button>
-                
+
                 <button onClick={() => navigation("/add")}> URL + </button>
 
                 <button onClick={() => navigation("/delete")}> URL - </button>

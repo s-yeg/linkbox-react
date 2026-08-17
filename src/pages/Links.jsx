@@ -8,13 +8,7 @@ function Links() {
 
         async function loadLinks() {
 
-            const response = await fetch(
-                'http://localhost:8080/api/links',
-                {
-                    method: 'GET',
-                    credentials: 'include'
-                }
-            )
+            const response = await fetch( 'http://localhost:8080/api/links', { method: 'GET',credentials: 'include' })
 
             const data = await response.json()
 

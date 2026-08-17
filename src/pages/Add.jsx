@@ -10,28 +10,17 @@ function Add() {
 
     async function clickAdd() {
 
-        const response = await fetch('http://localhost:8080/api/links', {
-            method: 'POST',
-
-            credentials: 'include',
-
-            headers: {
-                'Content-Type': 'application/json'
-            },
-
-            body: JSON.stringify({
-                title: title,
-                url: url
-            })
-        })
+        const response = await fetch('http://localhost:8080/api/links',
+             { method: 'POST',
+               credentials: 'include',
+               headers: { 'Content-Type': 'application/json'},
+               body: JSON.stringify({ title: title, url: url })
+             })
 
         const data = await response.text()
 
-        console.log(data)
 
-        if (data === "add success") {
-            navigation("/")
-        }
+        if (data === "add success") { navigation("/") }
     }
 
     return (

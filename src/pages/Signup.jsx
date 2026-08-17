@@ -10,26 +10,16 @@ function Signup() {
 
 async function clickSignup(){
 
-const response = await fetch ('http://localhost:8080/api/signup', {
-      method: 'POST',
-
-      headers:{
-          'Content-Type':'application/json'
-      },
-
-      body: JSON.stringify({
-        username: username,
-        password: password
-      })
-})
+const response = await fetch ('http://localhost:8080/api/signup', 
+    { method : 'POST',
+      headers :{'Content-Type':'application/json'},
+      body: JSON.stringify({username: username, password: password})
+    })
 
 const data = await response.text()
 
-console.log(data)
 
-if (data === "signup success"){
-  navigation("/login")
-}
+if (data === "signup success"){  navigation("/login") }
 
 
 }
@@ -43,7 +33,7 @@ if (data === "signup success"){
         <h1>SIGN UP</h1>
 
         <div className='loginBox'>
-            
+
             <input type='text' placeholder='Username' onChange={(e)=>setUsername(e.target.value)}/>
             <input type='password' placeholder='Password' onChange={(e)=>setPassword(e.target.value)}/>      
 
