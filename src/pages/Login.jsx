@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect  } from 'react'
 import { useNavigate } from 'react-router-dom';
 //시간+배터리 기능 컴포넌트
 import StatusBar from '../components/StatusBar';
@@ -16,6 +16,25 @@ function Login() {
 
   const [message,setMessage]=useState("");
 
+  useEffect(() => {
+
+  async function checkSession() {
+
+    const response = await fetch('http://localhost:8080/api/session', {
+      credentials: 'include'
+    })
+
+    const data = await response.text()
+
+    if (data === 'login') {
+      navigation('/', { replace: true })
+    }
+  }
+
+  checkSession()
+
+}, [])
+
 
 //로그인 버튼을 눌렀을때 실행되는 함수 
  async function clickLogin()
@@ -31,7 +50,8 @@ function Login() {
 
 
     if (data==="login success"){
-      navigation("/")
+      //{ replace: true } 추가: 브라우저 기록 스택 추가가 아닌 현재 기록 교체로 변경 
+      navigation("/",{ replace: true })
     }
 
     else {
