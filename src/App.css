@@ -1,0 +1,518 @@
+/* ========================================
+   LINK BOX COLOR
+======================================== */
+
+:root {
+    --deep-navy: #0F1A2B;
+    --midnight-blue: #1C2E4A;
+    --dusty-blue: #52677D;
+    --ivory: #BDC4D4;
+    --buttercream: #D3D0C9;
+    --white: #F7F8FA;
+}
+
+
+/* ========================================
+   기본 설정
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #3F4A55;
+    color: var(--white);
+}
+
+
+/* ========================================
+   전체 배경
+======================================== */
+
+#root {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(82, 103, 125, 0.35),
+            transparent 35%
+        ),
+        #3F4A55;
+}
+
+
+/* ========================================
+   PHONE FRAME
+======================================== */
+
+.container {
+    width: 390px;
+    min-height: 760px;
+
+    padding: 32px 30px 45px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--midnight-blue) 0%,
+            var(--deep-navy) 100%
+        );
+
+    border: 1px solid rgba(189, 196, 212, 0.22);
+
+    border-radius: 42px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.42);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   STATUS BAR
+   시간 / 신호 / 배터리
+======================================== */
+
+.statusBar {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 42px;
+
+    color: var(--white);
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+.statusRight {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+
+.signal {
+    font-size: 10px;
+    letter-spacing: -1px;
+
+    color: var(--white);
+}
+
+
+/* ========================================
+   TITLE
+======================================== */
+
+.container h1 {
+    margin: 0 0 20px;
+
+    text-align: left;
+
+    color: var(--white);
+
+    font-size: 46px;
+    font-weight: 800;
+
+    letter-spacing: -2px;
+}
+
+
+/* ========================================
+   설명
+======================================== */
+
+.subtitle {
+    margin: 0;
+
+    color: rgba(189, 196, 212, 0.82);
+
+    font-size: 14px;
+    font-weight: 400;
+
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   LOGIN / SIGNUP / ADD
+======================================== */
+
+.loginBox {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    margin-top: 42px;
+}
+
+
+/* ========================================
+   INPUT
+======================================== */
+
+.loginBox input {
+    display: block;
+
+    width: 100%;
+    height: 64px;
+
+    margin: 0;
+
+    padding: 0 20px;
+
+    border: 1px solid transparent;
+    border-radius: 22px;
+
+    background: rgba(82, 103, 125, 0.48);
+
+    color: var(--white);
+
+    font-family: inherit;
+    font-size: 17px;
+
+    outline: none;
+
+    transition:
+        background-color 0.2s,
+        border-color 0.2s;
+}
+
+
+.loginBox input::placeholder {
+    color: rgba(247, 248, 250, 0.62);
+}
+
+
+.loginBox input:focus {
+    background: rgba(82, 103, 125, 0.68);
+
+    border-color: rgba(189, 196, 212, 0.45);
+}
+
+
+/* ========================================
+   기본 버튼
+======================================== */
+
+button {
+    display: block;
+
+    width: 100%;
+    min-height: 68px;
+
+    margin: 0;
+
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 22px;
+
+    background: var(--ivory);
+    color: var(--deep-navy);
+
+    font-family: inherit;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        color 0.2s,
+        border-color 0.2s,
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+button:hover {
+    background: var(--dusty-blue);
+    color: var(--white);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   로그인 오류 메시지
+======================================== */
+
+.loginBox p {
+    margin: -5px 0;
+
+    min-height: 18px;
+
+    color: var(--ivory);
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+/* ========================================
+   LOGIN / SIGNUP 화면 버튼
+======================================== */
+
+.loginBox button {
+    background: var(--ivory);
+    color: var(--deep-navy);
+}
+
+
+.loginBox button:hover {
+    background: var(--dusty-blue);
+    color: var(--white);
+}
+
+
+/* 두 번째 버튼
+   로그인 화면의 SIGN UP
+======================================== */
+
+.loginBox button + button {
+    margin-top: 6px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: var(--white);
+
+    border: 1px solid rgba(189, 196, 212, 0.28);
+}
+
+
+.loginBox button + button:hover {
+    background: rgba(82, 103, 125, 0.40);
+
+    border-color: rgba(189, 196, 212, 0.45);
+
+    color: var(--white);
+}
+
+
+/* ========================================
+   HOME
+======================================== */
+
+.menuBox {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    margin-top: 40px;
+}
+
+
+.menuBox button {
+    width: 100%;
+    min-height: 68px;
+
+    background: var(--ivory);
+    color: var(--deep-navy);
+
+    border: none;
+
+    font-size: 16px;
+}
+
+
+.menuBox button:hover {
+    background: var(--dusty-blue);
+    color: var(--white);
+}
+
+
+/* ========================================
+   LOGOUT
+======================================== */
+
+.menuBox button:last-child {
+    margin-top: 22px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: var(--white);
+
+    border: 1px solid rgba(189, 196, 212, 0.28);
+}
+
+
+.menuBox button:last-child:hover {
+    background: rgba(82, 103, 125, 0.40);
+
+    border-color: rgba(189, 196, 212, 0.45);
+
+    color: var(--white);
+}
+
+
+/* ========================================
+   MY URL / DELETE
+   링크 카드
+======================================== */
+
+.container > div:not(.loginBox):not(.menuBox):not(.statusBar) {
+    width: 100%;
+
+    margin-bottom: 16px;
+
+    padding: 20px;
+
+    background: var(--ivory);
+
+    color: var(--deep-navy);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+
+.container > div:not(.loginBox):not(.menuBox):not(.statusBar) h3 {
+    margin: 0 0 8px;
+
+    color: var(--deep-navy);
+
+    font-size: 18px;
+}
+
+
+.container > div:not(.loginBox):not(.menuBox):not(.statusBar) p {
+    margin: 0;
+
+    color: var(--midnight-blue);
+
+    font-size: 14px;
+
+    word-break: break-all;
+}
+
+
+/* ========================================
+   링크
+======================================== */
+
+a {
+    color: var(--midnight-blue);
+
+    font-size: 14px;
+
+    text-decoration: none;
+
+    word-break: break-all;
+}
+
+
+a:hover {
+    color: var(--deep-navy);
+
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   DELETE 화면 버튼
+======================================== */
+
+.container > div:not(.loginBox):not(.menuBox):not(.statusBar) button {
+    min-height: 44px;
+
+    margin-top: 14px;
+
+    background: var(--midnight-blue);
+    color: var(--white);
+
+    border-radius: 14px;
+
+    font-size: 13px;
+}
+
+
+.container > div:not(.loginBox):not(.menuBox):not(.statusBar) button:hover {
+    background: var(--dusty-blue);
+
+    color: var(--white);
+
+    transform: translateY(-1px);
+}
+
+
+/* ========================================
+   작은 화면
+======================================== */
+
+@media (max-width: 500px) {
+
+    #root {
+        padding: 15px;
+    }
+
+
+    .container {
+        width: 100%;
+
+        min-height: calc(100vh - 30px);
+
+        padding: 30px 26px 40px;
+
+        /* 핸드폰에서도 둥글게 유지 */
+        border-radius: 36px;
+    }
+
+
+    .container h1 {
+        font-size: 42px;
+    }
+
+
+    .statusBar {
+        margin-bottom: 38px;
+    }
+}
